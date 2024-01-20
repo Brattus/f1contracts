@@ -11,6 +11,8 @@ import {
   postAndMoreStoriesQuery,
   postBySlugQuery,
   postSlugsQuery,
+  type Drivers,
+  driversQuery,
   type Settings,
   settingsQuery,
 } from 'lib/sanity.queries'
@@ -54,6 +56,11 @@ export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
   const client = getClient()
   const slugs = (await client.fetch<string[]>(postSlugsQuery)) || []
   return slugs.map((slug) => ({ slug }))
+}
+
+export async function getAllDrivers(client: SanityClient): Promise<Drivers[]> {
+  const drivers = (await client.fetch<Drivers[]>(driversQuery)) || []
+  return drivers
 }
 
 export async function getPostBySlug(

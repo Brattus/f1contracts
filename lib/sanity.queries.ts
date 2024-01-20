@@ -11,7 +11,7 @@ const postFields = groq`
   "author": author->{name, picture},
 `
 
-export const drivers = groq`
+export const driversQuery = groq`
   *[_type == "driver"] | order(_updatedAt desc) {
     _id,
     name,
