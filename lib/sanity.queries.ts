@@ -11,6 +11,15 @@ const postFields = groq`
   "author": author->{name, picture},
 `
 
+export const drivers = groq`
+  *[_type == "driver"] | order(_updatedAt desc) {
+    _id,
+    name,
+    number,
+    contracts,
+  }
+`
+
 export const settingsQuery = groq`*[_type == "settings"][0]`
 
 export const indexQuery = groq`
@@ -55,6 +64,13 @@ export interface Post {
   author?: Author
   slug?: string
   content?: any
+}
+
+export interface Drivers {
+  _id: string
+  name?: string
+  number?: number
+  contracts?: any[]
 }
 
 export interface Settings {
