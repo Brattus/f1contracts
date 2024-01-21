@@ -12,12 +12,19 @@ const postFields = groq`
 `
 
 export const driversQuery = groq`
-  *[_type == "driver"] | order(_updatedAt desc) {
-    _id,
-    name,
-    number,
-    contracts,
-  }
+*[_type == "driver"] | order(_updatedAt desc) {
+  _id,
+  name,
+  number,
+  active,
+  "contracts": contracts[] {
+    startYear,
+    endYear,
+    "team": team->,
+    _key
+  },
+  _updatedAt
+}
 `
 
 export const settingsQuery = groq`*[_type == "settings"][0]`
@@ -70,7 +77,9 @@ export interface Drivers {
   _id: string
   name?: string
   number?: number
+  active?: boolean
   contracts?: any[]
+  _updatedAt?: Date
 }
 
 export interface Settings {

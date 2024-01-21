@@ -20,6 +20,13 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'active',
+      title: 'Active driver this year',
+      type: 'boolean',
+      initialValue: true,
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'contracts',
       title: 'Contracts',
       type: 'array',
