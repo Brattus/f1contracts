@@ -17,6 +17,7 @@ export const driversQuery = groq`
   name,
   number,
   active,
+  comment,
   "contracts": contracts[] {
     startYear,
     endYear,
@@ -78,6 +79,7 @@ export interface Drivers {
   name?: string
   number?: number
   active?: boolean
+  comment?: string
   contracts?: any[]
   _updatedAt?: Date
 }

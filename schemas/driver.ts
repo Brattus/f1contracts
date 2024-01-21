@@ -27,6 +27,11 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'comment',
+      title: 'Comment',
+      type: 'string',
+    }),
+    defineField({
       name: 'contracts',
       title: 'Contracts',
       type: 'array',

@@ -15,7 +15,6 @@ export interface IndexPageProps {
 
 export default function IndexPage(props: IndexPageProps) {
   const { preview, loading, drivers, settings } = props;
-  console.log(props);
   const { title = demo.title, description = demo.description } = settings || {};
 
   return (
