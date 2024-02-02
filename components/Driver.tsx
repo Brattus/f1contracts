@@ -26,7 +26,8 @@ const Driver = (props) => {
     });
 
     // filter contracts and remove the ones that are not active
-    const activeContracts = contracts.filter(contract => contract.startYear <= thisYear && contract.endYear >= thisYear);
+    const activeContracts = contracts.filter(contract => thisYear <= contract.endYear);
+    //console.log(activeContracts);
 
     // function to choose white or black text color based on backgroundcolor
     // bgcolor is a hex without the "#"
@@ -44,8 +45,8 @@ const Driver = (props) => {
 
             <div className="">
                 <ul className='flex'>
-                    {activeContracts.map((contract) => (
-                        <li key={contract._key} className="flex justify-end items-center space-x-2 rounded-r-full" style={{ width: contract.width + '%', backgroundColor: '#' + contract.team.color, color: getTextColor(contract.team.color) }}>
+                    {activeContracts.map((contract, index, self) => (
+                        <li key={contract._key} className={`flex justify-end items-center space-x-2 ${contract._key === self[self.length - 1]._key ? 'rounded-r-full' : ''}`} style={{ width: contract.width + '%', backgroundColor: '#' + contract.team.color, color: getTextColor(contract.team.color) }}>
                             <div className="pr-4">{contract.endYear}</div>
                         </li>
                     ))}

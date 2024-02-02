@@ -4,9 +4,11 @@ import Driver from 'components/Driver'
 export default function driversList(props) {
     const drivers = props.drivers;
 
+    console.log(drivers);
+
     //Last updated
-    const lastUpdatedDriver = drivers[0];
-    const lastUpdatedPrettify = new Date(lastUpdatedDriver._updatedAt).toString();
+    const lastUpdatedDriver = drivers.reduce((prev, current) => (prev._updatedAt > current._updatedAt) ? prev : current);
+    const lastUpdatedPrettify = new Date(lastUpdatedDriver._updatedAt).toLocaleString();
 
     const driversSortedByEndYear = drivers.sort((a, b) => {
         const aEndYear = a.contracts[a.contracts.length - 1].endYear;
@@ -29,7 +31,7 @@ export default function driversList(props) {
     // array of years between this year and maxEndYear
     const years = [];
     const thisYear = new Date().getFullYear();
-    const calculateYear = thisYear - 1;
+    const calculateYear = thisYear;
     for (let i = calculateYear; i <= maxEndYear; i++) {
         years.push(i);
     }
@@ -39,8 +41,9 @@ export default function driversList(props) {
         <div className='space-y-12'>
 
             {/* Last updated */}
-            <div className="flex space-x-2">
-                <div className="">This information was last updated on</div>
+            <div className="flex flex-col prose">
+                <h2 className="text-2xl font-bold">Driver contracts for {thisYear} and beyond</h2>
+                <div className="">This information was last updated on: {lastUpdatedPrettify}</div>
                 {/* <div className="">{lastUpdatedPrettify}</div> */}
             </div>
 

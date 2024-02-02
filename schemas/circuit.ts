@@ -23,17 +23,27 @@ export default defineType({
             type: 'string',
             validation: (rule) => rule.required(),
         }),
+        // defineField({
+        //     name: 'contractStart',
+        //     title: 'Contract start',
+        //     type: 'number',
+        //     validation: (rule) => rule.required(),
+        // }),
+        defineField({
+            name: 'contractEnd',    
+            title: 'Contract end',
+            type: 'number',
+            validation: (rule) => rule.required(),
+        }),
         defineField({
             name: 'length',
             title: 'Length',
             type: 'number',
-            validation: (rule) => rule.required(),
         }),
         defineField({
             name: 'laps',
             title: 'Laps',
             type: 'number',
-            validation: (rule) => rule.required(),
         }),
         defineField({
             name: 'comment',
@@ -44,7 +54,7 @@ export default defineType({
             name: 'active',
             title: 'Active this year',
             type: 'boolean',
-            value: true,
+            initialValue: true,
         }),
         defineField({
             name: 'racedate',

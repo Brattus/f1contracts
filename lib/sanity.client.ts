@@ -12,7 +12,9 @@ import {
   postBySlugQuery,
   postSlugsQuery,
   type Drivers,
+  type Circuits,
   driversQuery,
+  circuitsQuery,
   type Settings,
   settingsQuery,
 } from 'lib/sanity.queries'
@@ -61,6 +63,12 @@ export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
 export async function getAllDrivers(client: SanityClient): Promise<Drivers[]> {
   const drivers = (await client.fetch<Drivers[]>(driversQuery)) || []
   return drivers
+}
+
+export async function getAllCircuits(client: SanityClient): Promise<Circuits[]> {
+  const circuits = (await client.fetch<Circuits[]>(circuitsQuery)) || []
+  console.log('hey', circuits)
+  return circuits
 }
 
 export async function getPostBySlug(

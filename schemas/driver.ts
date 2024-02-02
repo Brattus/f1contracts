@@ -74,8 +74,6 @@ export default defineType({
           },
         },
       ],
-
-
     }),
   ],
   // add better preview

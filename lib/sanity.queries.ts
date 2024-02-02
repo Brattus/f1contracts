@@ -1,4 +1,5 @@
 import { groq } from 'next-sanity'
+import circuit from 'schemas/circuit'
 
 const postFields = groq`
   _id,
@@ -25,6 +26,19 @@ export const driversQuery = groq`
     _key
   },
   _updatedAt
+}
+`
+
+export const circuitsQuery = groq`
+*[_type == "circuit"] | order(_updatedAt desc) {
+  _id,
+  name,
+  contractEnd,
+  active,
+  racedate,
+  comment,
+  laps,
+  length
 }
 `
 
@@ -82,6 +96,17 @@ export interface Drivers {
   comment?: string
   contracts?: any[]
   _updatedAt?: Date
+}
+
+export interface Circuits {
+  _id: string
+  name?: string
+  contractEnd?: number
+  active?: boolean
+  racedate?: Date
+  comment?: string
+  laps?: number
+  length?: number
 }
 
 export interface Settings {
