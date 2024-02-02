@@ -27,7 +27,6 @@ const Driver = (props) => {
 
     // filter contracts and remove the ones that are not active
     const activeContracts = contracts.filter(contract => thisYear <= contract.endYear);
-    //console.log(activeContracts);
 
     // function to choose white or black text color based on backgroundcolor
     // bgcolor is a hex without the "#"

@@ -4,7 +4,6 @@ import Driver from 'components/Driver'
 export default function driversList(props) {
     const drivers = props.drivers;
 
-    console.log(drivers);
 
     //Last updated
     const lastUpdatedDriver = drivers.reduce((prev, current) => (prev._updatedAt > current._updatedAt) ? prev : current);

@@ -67,7 +67,6 @@ export async function getAllDrivers(client: SanityClient): Promise<Drivers[]> {
 
 export async function getAllCircuits(client: SanityClient): Promise<Circuits[]> {
   const circuits = (await client.fetch<Circuits[]>(circuitsQuery)) || []
-  console.log('hey', circuits)
   return circuits
 }
 

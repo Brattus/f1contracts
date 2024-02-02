@@ -6,7 +6,6 @@ export default function circuitList(props) {
     //remove all non-active
     const activeCircuits = circuits.filter(circuit => circuit.active);
 
-    console.log('activeCircuits: ', activeCircuits);
 
     let maxEndYearContract = null;
     activeCircuits.forEach(circuit => {
@@ -20,7 +19,6 @@ export default function circuitList(props) {
     for (let i = thisYear; i <= maxEndYear; i++) {
         years.push(i);
     }
-    console.log('years: ', years);
     const percentageForEachyear = 100 / years.length;
 
     //Find width for each circuit
@@ -39,7 +37,6 @@ export default function circuitList(props) {
 
     //orderBy contractEnd
     circuits.sort((a, b) => a.contractEnd - b.contractEnd).reverse();
-    console.log('circuits: ', circuits);
 
     return (
         <div className='space-y-12'>

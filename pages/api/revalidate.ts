@@ -45,7 +45,6 @@ export default async function revalidate(
     )
     if (!isValidSignature) {
       const message = 'Invalid signature'
-      //console.log(message)
       return res.status(401).send(message)
     }
 
@@ -59,7 +58,6 @@ export default async function revalidate(
     await Promise.all(staleRoutes.map((route) => res.revalidate(route)))
 
     const updatedRoutes = `Updated routes: ${staleRoutes.join(', ')}`
-    console.log(updatedRoutes)
     return res.status(200).send(updatedRoutes)
   } catch (err) {
     console.error(err)
