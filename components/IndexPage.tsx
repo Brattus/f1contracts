@@ -7,7 +7,6 @@ import Footer from 'components/Footer'
 import IndexPageHead from 'components/IndexPageHead'
 import * as demo from 'lib/demo.data'
 import type { Drivers, Circuits, Settings } from 'lib/sanity.queries'
-import circuit from 'schemas/circuit'
 
 export interface IndexPageProps {
   preview?: boolean
