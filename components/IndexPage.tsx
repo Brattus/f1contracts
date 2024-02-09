@@ -3,6 +3,7 @@ import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
 import DriversList from 'components/DriversList'
 import CircuitList from 'components/CircuitList'
+import Footer from 'components/Footer'
 import IndexPageHead from 'components/IndexPageHead'
 import * as demo from 'lib/demo.data'
 import type { Drivers, Circuits, Settings } from 'lib/sanity.queries'
@@ -37,6 +38,8 @@ export default function IndexPage(props: IndexPageProps) {
 
 
             <CircuitList circuits={circuits} /></div>
+
+            <Footer />
 
         </Container>
       </Layout>
