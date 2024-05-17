@@ -9,7 +9,14 @@ export default function Document() {
       <body className="bg-white text-black">
         <Main />
         <NextScript />
-        <Analytics />
+        {/* Cloudflare Web Analytics */}
+                 <>
+                        <script
+                            defer
+                            src="https://static.cloudflareinsights.com/beacon.min.js"
+                            data-cf-beacon='{"token": "4f832cb0cb404b83826cdd976b4d1aae", "spa": true}'
+                        />
+                    </>
       </body>
     </Html>
   )
